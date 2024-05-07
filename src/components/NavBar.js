@@ -60,7 +60,7 @@ export const NavBar = () => {
               </div>
               {/* <HashLink to='#connect'> */}
                 {/* <button className="vvd"><span>Let’s Connect</span></button> */}
-                <a href={resume} download="vipin-resume" target='_blank'>
+                <a href={resume} download="VIPIN_RESUME.pdf" target='_blank'>
                   <button className="vvd">Download Resume</button>
                 </a>
               {/* </HashLink> */}
