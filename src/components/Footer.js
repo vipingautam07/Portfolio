@@ -25,7 +25,7 @@ export const Footer = () => {
               <a href="https://instagram.com/vipingautam07_/"><img src={navIcon3} alt="Icon" /></a>
               <a href="https://github.com/vipingautam07/"><img src={navIcon4} alt="Icon" /></a>
             </div>
-            <p>Copyright 2023. All Rights Reserved to VIPIN.</p>
+            <p>Copyright 2024. All Rights Reserved to VIPIN.</p>
           </Col>
         </Row>
       </Container>
