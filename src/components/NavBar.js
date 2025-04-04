@@ -54,8 +54,8 @@ export const NavBar = () => {
             <span className="navbar-text">
               <div className="social-icon">
                 <a href="https://www.linkedin.com/in/vipingautam07/"><img src={navIcon1} alt="" /></a>
-                <a href="https://twitter.com/vipingautam07_/"><img src={navIcon2} alt="" /></a>
-                <a href="https://instagram.com/vipingautam07_/"><img src={navIcon3} alt="" /></a>
+                <a href="https://x.com/vipingautam07_/"><img src={navIcon2} alt="" /></a>
+                <a href="https://leetcode.com/vipingautam07/"><img src={navIcon3} alt="" /></a>
                 <a href="https://github.com/vipingautam07/"><img src={navIcon4} alt="" /></a>
               </div>
               {/* <HashLink to='#connect'> */}

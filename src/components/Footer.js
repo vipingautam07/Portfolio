@@ -21,11 +21,11 @@ export const Footer = () => {
           <Col size={12} sm={6} className="text-center text-sm-end">
             <div className="social-icon">
               <a href="https://www.linkedin.com/in/vipingautam07/"><img src={navIcon1} alt="Icon" /></a>
-              <a href="https://twitter.com/vipingautam07_/"><img src={navIcon2} alt="Icon" /></a>
-              <a href="https://instagram.com/vipingautam07_/"><img src={navIcon3} alt="Icon" /></a>
+              <a href="https://x.com/vipingautam07_/"><img src={navIcon2} alt="Icon" /></a>
+              <a href="https://leetcode.com/vipingautam07/"><img src={navIcon3} alt="Icon" /></a>
               <a href="https://github.com/vipingautam07/"><img src={navIcon4} alt="Icon" /></a>
             </div>
-            <p>Copyright 2024. All Rights Reserved to VIPIN.</p>
+            <p>Copyright 2025. All Rights Reserved to VIPIN.</p>
           </Col>
         </Row>
       </Container>

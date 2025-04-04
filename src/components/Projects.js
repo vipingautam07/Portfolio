@@ -3,6 +3,10 @@ import { ProjectCard } from "./ProjectCard";
 import projImg1 from "../assets/img/project-img1.png";
 import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
+import projImg4 from "../assets/img/project-img4.png";
+import projImg5 from "../assets/img/project-img5.png";
+import projImg6 from "../assets/img/project-img6.png";
+
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -11,19 +15,42 @@ export const Projects = () => {
 
   const projects = [
     {
-      title: "E-commerce",
+      title: "Expense-tracker",
       description: "Backend & Frontend",
       imgUrl: projImg1,
+      projectLink:"https://expense-tracker-vipin.vercel.app/",
     },
     {
-      title: "Netflix-clone",
+      title: "Binkeyit e-commerce",
       description: "Backend & Frontend",
       imgUrl: projImg2,
+      projectLink:"https://binkeyit-full-stack-ydrn.vercel.app/",
     },
     {
-      title: "Portfolio",
-      description: "Design & Development",
+      title: "Fitness-webapp",
+      description: "Frontend & backend",
       imgUrl: projImg3,
+      projectLink:"https://vip-fitness-app.netlify.app/",
+    },
+  ];
+  const projects2 = [
+    {
+      title: "Solar design expert",
+      description: "wordpress development",
+      imgUrl: projImg4,
+      projectLink:"https://solardesignexpert.com/",
+    },
+    {
+      title: "Herbplay",
+      description: "shopify development",
+      imgUrl: projImg5,
+      projectLink:"https://herbplay.in",
+    },
+    {
+      title: "Nike website",
+      description: "Design & development",
+      imgUrl: projImg6,
+      projectLink:"https://nike-tawny.vercel.app/",
     },
   ];
 
@@ -71,7 +98,18 @@ export const Projects = () => {
                       </Row>
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                      <p>Software projects are specific endeavors undertaken by individuals or teams to design, develop, and implement software solutions to address particular needs or problems. These projects involve a systematic approach to building software, which typically includes phases like planning, analysis, design, implementation, testing, and deployment. Each software project has defined objectives, requirements, and constraints, making them unique in their scope and purpose.</p>
+                    <Row>
+                        {
+                          projects2.map((project2, index) => {
+                            return (
+                              <ProjectCard
+                                key={index}
+                                {...project2}
+                                />
+                            )
+                          })
+                        }
+                      </Row>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
                       <p>More Projects Coming Soon ...</p>

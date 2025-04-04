@@ -11,7 +11,7 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "Software Engineer", "Web Developer", "Programmer" ];
+  const toRotate = [ "Software Engineer", "Web Developer", "Freelancer" ];
   const period = 2000;
 
   useEffect(() => {
@@ -56,8 +56,8 @@ export const Banner = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Vipin Gautam`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Software Engineer", "Web Developer", "Programmer" z ]'><span className="wrap">{text}</span></span></h1>
-                  <p>I'm persuing <b>B.Tech</b> in <b>Computer Science and Business System</b> branch from <b>Rajiv Gandhi Proudyogiki Vishwavidayala, Bhopal</b>. I'm passionate about my work, I aim to join a distinguished organization in a challenging role, leveraging my extensive learnings and training. With unwavering dedication and a strong work ethic.</p>
+                <h1>{`Hi! I'm Vipin Gautam`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Software Engineer", "Web Developer", "Freelancer" z ]'><span className="wrap">{text}</span></span></h1>
+                  <p>I'm persuing <b>B.Tech</b> in <b>Computer Science </b> branch from <b>Rajiv Gandhi Proudyogiki Vishwavidayala, Bhopal</b>. I'm passionate about my work, I aim to join a distinguished organization in a challenging role, leveraging my extensive learnings and training. With unwavering dedication and a strong work ethic.</p>
                   <a href="#connect"><button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button></a>
               </div>}
             </TrackVisibility>
