@@ -12,13 +12,14 @@ import { Analytics } from "@vercel/analytics/react"
 function App() {
   return (
     <div className="App">
+      <Analytics />
       <NavBar />
       <Banner />
       <Skills />
       <Projects />
       <Contact />
       <Footer />
-      <Analytics />
+      
     </div>
   );
 }
