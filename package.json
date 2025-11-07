@@ -27,7 +27,7 @@
     "web-vitals": "^2.1.4",
     "eslint-config-react-app": "7.0.1"
   },
-  "engines": { "node": "18.x" },
+  "engines": { "node": "20.x" },
   "overrides": {
     "typescript": "4.9.5",
     "eslint": "8.57.0",
