@@ -144,7 +144,7 @@ export const Projects = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
                 <h2>Projects</h2>
-                <p>Projects play a crucial role in a software engineer's career, and they have several significant benefits:
+                <p>Projects play a crucial role in a software engineer's career, and they have several significant benefits:<br></br>
                   <span> 1. Skill Development </span>
                   <span> 2. Problem-Solving Abilities </span>
                   <span> 3. Portfolio Building </span>
