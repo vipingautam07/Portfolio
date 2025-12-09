@@ -1,30 +1,44 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
+import { LoadingSpinner } from "./LoadingSpinner";
 import projImg1 from "../assets/img/project-img1.png";
 import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
 import projImg4 from "../assets/img/project-img4.png";
 import projImg5 from "../assets/img/project-img5.png";
 import projImg6 from "../assets/img/project-img6.png";
-
+import projImg7 from "../assets/img/project-img7.png";
+import projImg8 from "../assets/img/project-img8.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 export const Projects = () => {
+  const [displayedProjects, setDisplayedProjects] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const loadMoreRef = useRef(null);
+  const currentIndexRef = useRef(0);
 
-  const projects = [
+  const allProjects = [
     {
       title: "Expense-tracker",
-      description: "Backend & Frontend",
+      description: "Node.js, Express, MongoDB, React, Chart.js",
       imgUrl: projImg1,
       projectLink:"https://expense-tracker-vipin.vercel.app/",
     },
     {
       title: "Binkeyit e-commerce",
-      description: "Backend & Frontend",
+      description: "Node.js, Express, MongoDB, React, Redux, Auth0, Stripe",
       imgUrl: projImg2,
       projectLink:"https://binkeyit-full-stack-ydrn.vercel.app/",
+    },
+    {
+      title: "Quiz Box",
+      description: "React, Node.js, SocketIo",
+      imgUrl: projImg7,
+      projectLink:"https://quizbox0.vercel.app/",
     },
     {
       title: "Fitness-webapp",
@@ -32,11 +46,15 @@ export const Projects = () => {
       imgUrl: projImg3,
       projectLink:"https://vip-fitness-app.netlify.app/",
     },
-  ];
-  const projects2 = [
+    {
+      title: "Book Finder",
+      description: "React, openlibrary api",
+      imgUrl: projImg8,
+      projectLink:"https://book-finder-task-five.vercel.app/",
+    },
     {
       title: "Solar design expert",
-      description: "wordpress development",
+      description: "website development",
       imgUrl: projImg4,
       projectLink:"https://solardesignexpert.com/",
     },
@@ -54,6 +72,69 @@ export const Projects = () => {
     },
   ];
 
+  const ITEMS_PER_LOAD = 3;
+
+  useEffect(() => {
+    // Initial load
+    const initialProjects = allProjects.slice(0, ITEMS_PER_LOAD);
+    setDisplayedProjects(initialProjects);
+    currentIndexRef.current = ITEMS_PER_LOAD;
+    setHasMore(allProjects.length > ITEMS_PER_LOAD);
+  }, []);
+
+  const loadMoreProjects = useCallback(() => {
+    if (isLoading || !hasMore) return;
+    
+    setIsLoading(true);
+    
+    // Simulate loading delay for smooth animation
+    setTimeout(() => {
+      const nextIndex = currentIndexRef.current;
+      const nextProjects = allProjects.slice(nextIndex, nextIndex + ITEMS_PER_LOAD);
+      
+      if (nextProjects.length > 0) {
+        setDisplayedProjects((prev) => {
+          // Check for duplicates
+          const existingTitles = new Set(prev.map(p => p.title));
+          const newProjects = nextProjects.filter(p => !existingTitles.has(p.title));
+          return [...prev, ...newProjects];
+        });
+        currentIndexRef.current = nextIndex + ITEMS_PER_LOAD;
+        setHasMore(currentIndexRef.current < allProjects.length);
+      } else {
+        setHasMore(false);
+      }
+      setIsLoading(false);
+    }, 600);
+  }, [isLoading, hasMore]);
+
+  useEffect(() => {
+    if (!hasMore || isLoading) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasMore && !isLoading) {
+          loadMoreProjects();
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '100px',
+      }
+    );
+
+    const currentRef = loadMoreRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [hasMore, isLoading, loadMoreProjects]);
+
   return (
     <section className="project" id="project">
       <Container>
@@ -64,64 +145,39 @@ export const Projects = () => {
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
                 <h2>Projects</h2>
                 <p>Projects play a crucial role in a software engineer's career, and they have several significant benefits:
-                  1. Skill Development
-                  2. Problem-Solving Abilities
-                  3. Portfolio Building
-                  4. Learning Experience
-                  5. Collaboration and Teamwork
+                  <span> 1. Skill Development </span>
+                  <span> 2. Problem-Solving Abilities </span>
+                  <span> 3. Portfolio Building </span>
+                  <span> 4. Learning Experience </span>
+                  <span> 5. Collaboration and Teamwork </span>
                 </p>
-                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                    <Nav.Item>
-                      <Nav.Link eventKey="first">Tab 1</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="third">Tab 3</Nav.Link>
-                    </Nav.Item>
-                  </Nav>
-                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                    <Tab.Pane eventKey="first">
-                      <Row>
-                        {
-                          projects.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="second">
-                    <Row>
-                        {
-                          projects2.map((project2, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project2}
-                                />
-                            )
-                          })
-                        }
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="third">
-                      <p>More Projects Coming Soon ...</p>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Tab.Container>
+                <div className="project-grid">
+                  {displayedProjects.map((project, index) => (
+                    <ProjectCard
+                      key={`${project.title}-${project.projectLink || index}`}
+                      {...project}
+                    />
+                  ))}
+                </div>
+                {isLoading && (
+                  <div className="project-loading-container">
+                    <LoadingSpinner size="medium" />
+                  </div>
+                )}
+                {hasMore && !isLoading && (
+                  <div ref={loadMoreRef} className="project-load-more-trigger"></div>
+                )}
               </div>}
             </TrackVisibility>
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
+      <img 
+        className="background-image-right lazy-load-bg" 
+        src={colorSharp2} 
+        alt="Background"
+        loading="lazy"
+      />
     </section>
   )
 }

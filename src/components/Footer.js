@@ -15,7 +15,7 @@ export const Footer = () => {
           <Col size={12} sm={6}>
             <img src={logo} alt="Logo" />
             <p>
-              gautamvipin2002@gmail.com
+              <a href="mailto:gautamvipin2002@gmail.com">gautamvipin2002@gmail.com</a>
             </p>
           </Col>
           <Col size={12} sm={6} className="text-center text-sm-end">
@@ -25,7 +25,7 @@ export const Footer = () => {
               <a href="https://leetcode.com/vipingautam07/"><img src={navIcon3} alt="Icon" /></a>
               <a href="https://github.com/vipingautam07/"><img src={navIcon4} alt="Icon" /></a>
             </div>
-            <p>Copyright 2025. All Rights Reserved to VIPIN.</p>
+            <p>Copyright 2026. All Rights Reserved to VIPIN.</p>
           </Col>
         </Row>
       </Container>
