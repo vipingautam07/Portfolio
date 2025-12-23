@@ -10,6 +10,7 @@ import projImg5 from "../assets/img/project-img5.png";
 import projImg6 from "../assets/img/project-img6.png";
 import projImg7 from "../assets/img/project-img7.png";
 import projImg8 from "../assets/img/project-img8.png";
+import projImg9 from "../assets/img/project-img9.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -23,10 +24,10 @@ export const Projects = () => {
 
   const allProjects = [
     {
-      title: "Expense-tracker",
-      description: "Node.js, Express, MongoDB, React, Chart.js",
-      imgUrl: projImg1,
-      projectLink:"https://expense-tracker-vipin.vercel.app/",
+      title: "Kinnect AI (SAAS Platform)",
+      description: " Gemini API, Node.js, Express, MongoDB, React",
+      imgUrl: projImg9,
+      projectLink:"https://kinnect-ai.vercel.app/",
     },
     {
       title: "Binkeyit e-commerce",
@@ -39,6 +40,12 @@ export const Projects = () => {
       description: "React, Node.js, SocketIo",
       imgUrl: projImg7,
       projectLink:"https://quizbox0.vercel.app/",
+    },
+    {
+      title: "Expense-tracker",
+      description: "Node.js, Express, MongoDB, React, Chart.js",
+      imgUrl: projImg1,
+      projectLink:"https://expense-tracker-vipin.vercel.app/",
     },
     {
       title: "Fitness-webapp",

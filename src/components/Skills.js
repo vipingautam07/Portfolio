@@ -4,6 +4,7 @@ import meter2 from "../assets/img/icon/react.png";
 import meter3 from "../assets/img/icon/js.png";
 import meter4 from "../assets/img/icon/node.png";
 import meter5 from "../assets/img/icon/github.png";
+import meter6 from "../assets/img/icon/n8n.png";
 import meter7 from "../assets/img/icon/shopify.png";
 import meter8 from "../assets/img/icon/Tailwind.png";
 import meter9 from "../assets/img/icon/sql.png";
@@ -11,8 +12,9 @@ import meter10 from "../assets/img/icon/MongoDB.png";
 import meter11 from "../assets/img/icon/docker.png";
 import meter12 from "../assets/img/icon/Kubernetes.png";
 import meter13 from "../assets/img/icon/VS.png";
-import meter14 from "../assets/img/icon/java.png";
+// import meter14 from "../assets/img/icon/java.png";
 import meter15 from "../assets/img/icon/Postman.png";
+
 
 
 
@@ -31,7 +33,7 @@ export const Skills = () => {
     { name: "Docker", icon: meter11 },
     { name: "Kubernetes", icon: meter12 },
     { name: "VS Code", icon: meter13 },
-    { name: "Java", icon: meter14 },
+    { name: "n8n Automation", icon: meter6 },
     { name: "Postman", icon: meter15 },
   ];
 
