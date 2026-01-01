@@ -1102,6 +1102,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(170, 54, 124, 0.4), 0 4px 12px rgba(74, 47, 189, 0.3);
   border-color: rgba(255, 255, 255, 0.5);
+  text-decoration: none !important;
+  color: #fff;
 }
 
 .buy-coffee-btn svg {
@@ -1118,6 +1120,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   position: relative;
   z-index: 1;
 }
+
+.buy-coffee-btn:visited,
+.buy-coffee-btn:active {
+  color: #fff;
+}
+
 
 /* Newsletter responsive tweaks */
 @media (max-width: 992px) {
